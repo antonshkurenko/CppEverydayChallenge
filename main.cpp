@@ -14,7 +14,7 @@ int main(int argc, char **argv) {
 
     const std::function<bool()> func = [&]() {
 
-        std::cout << "My name is Anton Shkurenko and you're welcome! This is my try to learn C++ in 21 day!";
+        std::cout << "My name is Anton Shkurenko and you're welcome! This is my try to learn C++ in 21 days!";
         std::cout << "\nChoose task:" <<
         "\n1 - first day" <<
         "\n2 - second day\n";
