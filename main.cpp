@@ -9,20 +9,23 @@
 #include "commons/utils.h"
 #include "first-day/first_day.h"
 #include "second-day/second_day.h"
+#include "third-day/third_day.h"
 
-int main(int argc, char **argv) {
+int main(int argc, char** argv) {
 
-    const std::function<bool()> func = [&]() {
+    whileIncorrectExecute([]() {
 
         std::cout << "My name is Anton Shkurenko and you're welcome! This is my try to learn C++ in 21 days!";
         std::cout << "\nChoose task:" <<
         "\n1 - first day" <<
-        "\n2 - second day\n";
+        "\n2 - second day" <<
+        "\n3 - third day" <<
+        "\n-1 - exit\n";
         int day;
 
         safeInput<int>(day);
 
-        bool breakFlag = true;
+        bool breakFlag = false;
         switch (day) {
             case 1:
                 firstDay();
@@ -30,13 +33,20 @@ int main(int argc, char **argv) {
             case 2:
                 secondDay();
                 break;
+            case 3:
+                thirdDay();
+                break;
+            case -1:
+                breakFlag = true;
+                break;
             default:
-                breakFlag = false;
                 break;
         }
+
+        std::cout << "\n***\n\n";
+
         return breakFlag;
-    };
-    whileIncorrectExecute(func);
+    });
 
     return 1;
 }

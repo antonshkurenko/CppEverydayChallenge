@@ -7,12 +7,10 @@
 #include <stdexcept>
 #include "../commons/utils.h"
 
-using std::cout;
-
 char checkGrade(int grade) {
     char mark; // todo(cullycross), 11/27/15: how to set default non-empty value? '' is not valid.
     if (grade < 0 || grade > 100) {
-        throw std::runtime_error((char *) "Score is not in 0..100 bounds");
+        throw std::runtime_error((char*) "Score is not in 0..100 bounds");
     } else if (grade < 60) {
         mark = 'F';
     } else if (grade < 70) {
@@ -29,20 +27,20 @@ char checkGrade(int grade) {
 
 void firstDay() {
 
-    cout << "Hello! It's first day excersize.\nMy name is Anton Shkurenko and you're welcome!";
+    std::cout << "It's first day excersize.\nYou're welcome!";
     try {
         int grade;
-        cout << "\n*** \nInput your score (0..100): \n";
+        std::cout << "\n\nInput your score (0..100): ";
         safeInput(grade);
-        cout << "\n";
+        std::cout << "\n";
 
         const char mark = checkGrade(grade);
-        cout << "Your score is " << mark << "\n";
+        std::cout << "Your score is " << mark << "\n";
         if (mark == 'A') {
-            cout << "Hey! Hey! Hey! Congratz!\n";
+            std::cout << "Hey! Hey! Hey! Congratz!\n";
         }
-    } catch (const std::runtime_error &e) {
-        cout << "Exception occured, message: " << e.what() << "\n";
+    } catch (const std::runtime_error& e) {
+        std::cout << "Exception occured, message: " << e.what() << "\n";
     }
 }
 

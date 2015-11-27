@@ -7,13 +7,11 @@
 #include <iostream>
 #include <functional>
 #include "../commons/utils.h"
+#include "second_day.h"
 
-using std::cout;
-
-void inputBeverage(bool (*f)(int)) {
-
-    const std::function<bool()> func = [&]() {
-        cout << "\nChoose your beverage:" <<
+void inputBeverage(const std::function<bool(int)> f) {
+    whileIncorrectExecute([&]() {
+        std::cout << "\nChoose your beverage:" <<
         "\n1 - Whiskey;" <<
         "\n2 - Wine;" <<
         "\n3 - Cognac;" <<
@@ -22,34 +20,32 @@ void inputBeverage(bool (*f)(int)) {
         int beverage;
 
         safeInput(beverage);
-
         return f(beverage);
-    };
-    whileIncorrectExecute(func);
+    });
 }
 
 bool switchBeverage(int beverage) {
 
-    cout << "\nSwitch output\n";
+    std::cout << "\nSwitch output: ";
     bool breakFlag = true;
     switch (beverage) {
         case 1:
-            cout << "\nGreat choice! One whiskey for this gentleman!";
+            std::cout << CHOICE_WHISKEY;
             break;
         case 2:
-            cout << "\nNice one! Taste your wine!";
+            std::cout << CHOICE_WINE;
             break;
         case 3:
-            cout << "\nCongratz! Would you like a cigar?";
+            std::cout << CHOICE_COGNAC;
             break;
         case 4:
-            cout << "\nAmigo! Enjoy your tequila!";
+            std::cout << CHOICE_TEQUILA;
             break;
         case 5:
-            cout << "\nWould you like a cup of beer? Or maybe coffee?";
+            std::cout << CHOICE_OTHER;
             break;
         default:
-            cout << "\nYou broke my heart.";
+            std::cout << CHOICE_BROKEN_HEART;
             breakFlag = false;
             break;
     }
@@ -58,23 +54,22 @@ bool switchBeverage(int beverage) {
 
 bool ifElseBeverage(int beverage) {
 
-    cout << "\nIf-else output\n";
+    std::cout << "\nIf-else output: ";
     bool breakFlag = true;
     if (beverage == 1) {
-        cout << "\nGreat choice! One whiskey for this gentleman!";
+        std::cout << CHOICE_WHISKEY;
     } else if (beverage == 2) {
-        cout << "\nNice one! Taste your wine!";
+        std::cout << CHOICE_WINE;
     } else if (beverage == 3) {
-        cout << "\nCongratz! Cognac is same good as you, would you like a cigar?";
+        std::cout << CHOICE_COGNAC;
     } else if (beverage == 4) {
-        cout << "\nAmigo! Enjoy your tequila!";
+        std::cout << CHOICE_TEQUILA;
     } else if (beverage == 5) {
-        cout << "\nWould you like a cup of beer? Or maybe coffee?";
+        std::cout << CHOICE_OTHER;
     } else {
-        cout << "\nYou broke my heart.";
+        std::cout << CHOICE_BROKEN_HEART;
         breakFlag = false;
     }
-
     return breakFlag;
 }
 
@@ -82,12 +77,11 @@ void chooseFlow() {
 
     int flow;
 
-    const std::function<bool()> f = [&]() {
-        cout << "\nChoose how program will execute.\n1 - switch;\n2 - if-else.\n";
+    whileIncorrectExecute([&]() {
+        std::cout << "\nChoose how program will execute.\n1 - switch;\n2 - if-else.\n";
         safeInput(flow);
         return flow == 1 || flow == 2;
-    };
-    whileIncorrectExecute(f);
+    });
 
     switch (flow) {
         case 1:
@@ -98,14 +92,14 @@ void chooseFlow() {
             break;
         default:
             // should never happen;
-            cout << "\nYou visited Platform Nine and Three-Quarters";
+            std::cout << "\nYou visited Platform Nine and Three-Quarters";
             break;
     }
 }
 
 void secondDay() {
 
-    cout << "Hello! It's second day excersize.\nMy name is Anton Shkurenko and you're welcome!";
+    std::cout << "It's second day excersize.\nYou're welcome!";
     chooseFlow();
 }
 

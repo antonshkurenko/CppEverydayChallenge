@@ -8,13 +8,7 @@
 #include <limits>
 #include "utils.h"
 
-/*void whileIncorrectExecute(bool (*function)()) {
-    while (true) {
-        if (function()) {
-            break;
-        }
-    }
-}*/
+// todo(cullycross), 11/28/15: still same question, what to do with <return_type>(*<func_name>)(<param_type>)
 
 void whileIncorrectExecute(const std::function<bool()> func) {
     while (true) {
@@ -26,9 +20,8 @@ void whileIncorrectExecute(const std::function<bool()> func) {
 
 // todo(cullycross), 11/27/15: rework it, to safeInput(std::istream cin, T &type)
 template<typename T>
-void safeInput(T &type) {
-
-    const std::function<bool()> func = [&]() {
+void safeInput(T& type) {
+    whileIncorrectExecute([&]() {
         if (!(std::cin >> type)) {
             std::cout << "\nPlease enter a valid input:\n";
             std::cin.clear();
@@ -37,8 +30,7 @@ void safeInput(T &type) {
         } else {
             return true;
         }
-    };
-    whileIncorrectExecute(func);
+    });
 }
 
-template void safeInput<int> (int &type); // unbelievable, do I really need this? Pretty not flexible.
+template void safeInput<int>(int& type);

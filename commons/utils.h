@@ -9,9 +9,11 @@
 #include <istream>
 #include <functional>
 
-//void whileIncorrectExecute(bool (*function)());
+// todo(cullycross), 11/28/15: I don't know where to save this todo, namespaces in util headers
+
 void whileIncorrectExecute(const std::function<bool()> func);
 
-template<typename T> void safeInput(T &type);
+template<typename T>
+void safeInput(T& type);
 
 #endif //CPPEVERYDAYCHALLENGE_UTILS_H
