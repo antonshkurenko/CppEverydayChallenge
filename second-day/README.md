@@ -1,8 +1,8 @@
-Cola Machine
-Requires:
-variables, data types, and numerical operators
-basic input/output
-logic (if statements, switch statements)
+Cola Machine  
+Requires:  
+variables, data types, and numerical operators  
+basic input/output  
+logic (if statements, switch statements)  
 
 Write a program that presents the user w/ a choice of your 5 favorite beverages (Coke, Water, Sprite, ... , Whatever).
 Then allow the user to choose a beverage by entering a number 1-5.

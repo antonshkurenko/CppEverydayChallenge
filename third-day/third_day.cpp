@@ -23,6 +23,7 @@ void five() {
             }
             return false;
         } else {
+            std::cout << "You weren't supposed to enter five!\n";
             return true;
         }
     });
@@ -44,6 +45,8 @@ void counter() {
             counter++;
             return false;
         } else {
+            sprintf(outString, "You weren't supposed to enter %d!\n", counter);
+            std::cout << outString;
             return true;
         }
     });

@@ -1,9 +1,9 @@
-While( user == gullible )
-Requires:
-variables, data types, and numerical operators
-basic input/output
-logic (if statements, switch statements)
-loops (for, while, do-while)
+While( user == gullible )  
+Requires:  
+variables, data types, and numerical operators  
+basic input/output  
+logic (if statements, switch statements)  
+loops (for, while, do-while)  
 
 Write a program that continues to asks the user to enter any number other than 5 until the user enters the number 5.
 Then tell the user "Hey! you weren't supposed to enter 5!" and exit the program.
