@@ -9,11 +9,11 @@
 #include "../commons/utils.h"
 
 void five() {
-    int counter = 0;
-    whileIncorrectExecute([&counter]() {
+    int counter{0};
+    utils::whileIncorrectExecute([&counter]() {
         int five;
         std::cout << "Input anything except five: ";
-        safeInput(five);
+        utils::safeInput(five);
 
         if (five != 5) {
             counter++;
@@ -30,16 +30,16 @@ void five() {
 }
 
 void counter() {
-    int counter = 0;
+    int counter{0};
 
     // todo(cullycross), 11/28/15: now memory allocating? now "new" or etc keyword? malloc etc?
     //                             just simple declaring?
-    char outString[128];
-    whileIncorrectExecute([&counter, &outString]() { // is it better to mention every variable or just [&] ?
+    static char outString[128];
+    utils::whileIncorrectExecute([&counter]() { // is it better to mention every variable or just [&] ?
         int anything;
         sprintf(outString, "Input anything except %d: ", counter);
         std::cout << outString;
-        safeInput(anything);
+        utils::safeInput(anything);
 
         if (anything != counter) {
             counter++;
@@ -53,13 +53,13 @@ void counter() {
 }
 
 void execute() {
-    whileIncorrectExecute([]() {
+    utils::whileIncorrectExecute([]() {
         std::cout << "\nChoose your hero:" <<
         "\n1 - It's about five;" <<
         "\n2 - It's about counter.\n";
         int choice;
 
-        safeInput(choice);
+        utils::safeInput(choice);
         bool breakFlag = true;
         switch (choice) {
             case 1:

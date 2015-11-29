@@ -10,7 +10,7 @@
 #include "second_day.h"
 
 void inputBeverage(const std::function<bool(int)> f) {
-    whileIncorrectExecute([&]() {
+    utils::whileIncorrectExecute([&]() {
         std::cout << "\nChoose your beverage:" <<
         "\n1 - Whiskey;" <<
         "\n2 - Wine;" <<
@@ -19,7 +19,7 @@ void inputBeverage(const std::function<bool(int)> f) {
         "\n5 - Other.\n";
         int beverage;
 
-        safeInput(beverage);
+        utils::safeInput(beverage);
         return f(beverage);
     });
 }
@@ -27,7 +27,7 @@ void inputBeverage(const std::function<bool(int)> f) {
 bool switchBeverage(int beverage) {
 
     std::cout << "\nSwitch output: ";
-    bool breakFlag = true;
+    bool breakFlag{true};
     switch (beverage) {
         case 1:
             std::cout << CHOICE_WHISKEY;
@@ -55,7 +55,7 @@ bool switchBeverage(int beverage) {
 bool ifElseBeverage(int beverage) {
 
     std::cout << "\nIf-else output: ";
-    bool breakFlag = true;
+    bool breakFlag{true};
     if (beverage == 1) {
         std::cout << CHOICE_WHISKEY;
     } else if (beverage == 2) {
@@ -77,9 +77,9 @@ void chooseFlow() {
 
     int flow;
 
-    whileIncorrectExecute([&]() {
+    utils::whileIncorrectExecute([&]() {
         std::cout << "\nChoose how program will execute.\n1 - switch;\n2 - if-else.\n";
-        safeInput(flow);
+        utils::safeInput(flow);
         return flow == 1 || flow == 2;
     });
 

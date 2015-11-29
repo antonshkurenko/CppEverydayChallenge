@@ -5,6 +5,8 @@
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/commons/utils.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/commons/utils.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/fifth-day/fifth_day.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/fifth-day/fifth_day.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/first-day/first_day.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/first-day/first_day.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/fourth-day/fourth_day.cpp" isTestSource="false" />

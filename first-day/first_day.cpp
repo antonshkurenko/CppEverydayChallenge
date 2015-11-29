@@ -31,7 +31,7 @@ void firstDay() {
     try {
         int grade;
         std::cout << "\n\nInput your score (0..100): ";
-        safeInput(grade);
+        utils::safeInput(grade);
         std::cout << "\n";
 
         const char mark = checkGrade(grade);

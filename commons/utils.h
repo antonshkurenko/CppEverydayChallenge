@@ -11,9 +11,13 @@
 
 // todo(cullycross), 11/28/15: I don't know where to save this todo, namespaces in util headers
 
-void whileIncorrectExecute(const std::function<bool()> func);
+namespace utils {
+    void whileIncorrectExecute(const std::function<bool()> func);
 
-template<typename T>
-void safeInput(T& type);
+    template<typename T>
+    void safeInput(T& type);
+
+    int random(int min, int max);
+}
 
 #endif //CPPEVERYDAYCHALLENGE_UTILS_H
