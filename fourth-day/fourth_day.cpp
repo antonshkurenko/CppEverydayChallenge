@@ -11,7 +11,6 @@
 void setupPancakes() {
 
     static char outString[128];
-    // todo(cullycross), 11/28/15: arrays vs vector? Is vector same usual as ArrayList in Java?
     std::pair<int, int> peopleAndPancakes[LENGTH];
     // todo(cullycross), 11/28/15: is there any foreach cycle?
     for (int i = 0; i < LENGTH; i++) {
@@ -21,7 +20,8 @@ void setupPancakes() {
         utils::whileIncorrectExecute([&peopleAndPancakes, i]() {
             utils::safeInput(peopleAndPancakes[i].second);
 
-            // todo(cullycross), 11/28/15: was it possible to use unsigned int? will it produce error, if I "cin >> -1"
+            // todo(cullycross), 11/28/15: was it possible to use unsigned (to prevent checking > 0) int?
+            // will it produce error, if I "cin >> -1"
             if (peopleAndPancakes[i].second < 0) {
                 std::cout << "\nInput positive value: ";
                 return false;

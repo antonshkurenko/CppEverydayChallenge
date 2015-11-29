@@ -9,8 +9,6 @@
 #include <istream>
 #include <functional>
 
-// todo(cullycross), 11/28/15: I don't know where to save this todo, namespaces in util headers
-
 namespace utils {
     void whileIncorrectExecute(const std::function<bool()> func);
 

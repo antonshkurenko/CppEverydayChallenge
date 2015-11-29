@@ -31,9 +31,6 @@ void five() {
 
 void counter() {
     int counter{0};
-
-    // todo(cullycross), 11/28/15: now memory allocating? now "new" or etc keyword? malloc etc?
-    //                             just simple declaring?
     static char outString[128];
     utils::whileIncorrectExecute([&counter]() { // is it better to mention every variable or just [&] ?
         int anything;
