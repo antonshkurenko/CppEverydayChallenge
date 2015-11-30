@@ -8,6 +8,8 @@
 #include "fourth_day.h"
 #include "../commons/utils.h"
 
+static const int LENGTH = 10;
+
 void setupPancakes() {
 
     static char outString[128];

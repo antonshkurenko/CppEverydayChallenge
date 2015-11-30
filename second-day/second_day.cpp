@@ -9,6 +9,19 @@
 #include "../commons/utils.h"
 #include "second_day.h"
 
+static const char* const CHOICE_WHISKEY = "\nGreat choice! One whiskey for this gentleman!";
+
+static const char* const CHOICE_WINE = "\nNice one! Taste your wine!";
+
+static const char* const CHOICE_COGNAC = "\nCongratz! Would you like a cigar?";
+
+static const char* const CHOICE_TEQUILA = "\nAmigo! Enjoy your tequila!";
+
+static const char* const CHOICE_OTHER = "\nWould you like a cup of beer? Or maybe coffee?";
+
+static const char* const CHOICE_BROKEN_HEART = "\nYou broke my heart.";
+
+
 void inputBeverage(const std::function<bool(int)> f) {
     utils::whileIncorrectExecute([&]() {
         std::cout << "\nChoose your beverage:" <<

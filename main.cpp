@@ -12,6 +12,7 @@
 #include "third-day/third_day.h"
 #include "fourth-day/fourth_day.h"
 #include "fifth-day/fifth_day.h"
+#include "sixth-day/sixth_day.h"
 
 int main(int argc, char** argv) {
 
@@ -24,6 +25,7 @@ int main(int argc, char** argv) {
         "\n3 - third day" <<
         "\n4 - fourth day" <<
         "\n5 - fifth day" <<
+        "\n6 - sixth day" <<
         "\n-1 - exit\n";
         int day;
 
@@ -45,6 +47,9 @@ int main(int argc, char** argv) {
                 break;
             case 5:
                 fifthDay();
+                break;
+            case 6:
+                sixthDay();
                 break;
             case -1:
                 breakFlag = true;

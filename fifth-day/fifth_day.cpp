@@ -9,6 +9,10 @@
 #include "fifth_day.h"
 #include "../commons/utils.h"
 
+static const int LOW_BOUND = 1;
+
+static const int TOP_BOUND = 100;
+
 bool isRandomly() {
     bool random;
     utils::whileIncorrectExecute([&random]() {
@@ -42,12 +46,12 @@ void userGuess() {
     static char outString[128];
 
     const auto number = utils::random(LOW_BOUND, std::nextafter(TOP_BOUND, INT_MAX));
-    utils::whileIncorrectExecute([&counter, outString, number]() {
+    utils::whileIncorrectExecute([&counter, number]() {
         int guess;
 
         sprintf(outString, "\nTry #%d", ++counter);
         std::cout << outString;
-        std::cout<<"\n\nInput your expectations: ";
+        std::cout << "\n\nInput your expectations: ";
         utils::safeInput(guess);
 
         if (guess == number) {
@@ -61,12 +65,13 @@ void userGuess() {
     });
 }
 
+// todo(cullycross), 11/30/15: refactor to 2 short functions and one big
 void randomGuess(int number) {
     int lowBound{LOW_BOUND}, topBound{TOP_BOUND};
     int counter{0};
     static char outString[128]; // todo(cullycross), 11/29/15: is this a good decision?
 
-    utils::whileIncorrectExecute([&counter, &lowBound, &topBound, outString, number]() {
+    utils::whileIncorrectExecute([&counter, &lowBound, &topBound, number]() {
         const int guess = utils::random(lowBound, std::nextafter(topBound, INT_MAX));
 
         sprintf(outString, "\nTry #%d", ++counter);

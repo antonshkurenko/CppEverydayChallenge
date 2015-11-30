@@ -11,9 +11,12 @@
       <sourceFolder url="file://$MODULE_DIR$/first-day/first_day.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/fourth-day/fourth_day.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/fourth-day/fourth_day.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libs/rlutil.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/second-day/second_day.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/second-day/second_day.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/sixth-day/sixth_day.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/sixth-day/sixth_day.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/third-day/third_day.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/third-day/third_day.h" isTestSource="false" />
     </content>
