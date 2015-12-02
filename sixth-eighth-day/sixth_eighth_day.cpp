@@ -42,6 +42,7 @@ void init() {
 }
 
 void draw() {
+
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
 
@@ -52,7 +53,6 @@ void draw() {
                 rlutil::setColor(rlutil::GREY);
             }
             if (deck[i][j] == SPACE) {
-                rlutil::setBackgroundColor(rlutil::LIGHTBLUE);
                 rlutil::setChar('.');
             } else if (deck[i][j] == X) {
                 rlutil::setChar('X');
@@ -62,6 +62,8 @@ void draw() {
         }
         std::cout << "\n";
     }
+    rlutil::setColor(rlutil::GREY);
+    std::cout<<"\nControls: wasd, place X : SPACE";
 }
 
 void invalidate() {
