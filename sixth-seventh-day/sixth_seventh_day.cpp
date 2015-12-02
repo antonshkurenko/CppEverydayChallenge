@@ -35,7 +35,7 @@ void init() {
     }
 
     rlutil::hidecursor();
-    player = utils::random(0, 2);
+    player = utils::random(0, 2); // // todo(cullycross), 12/2/15: ain't sure it works
 }
 
 void draw() {
