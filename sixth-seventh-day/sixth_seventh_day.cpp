@@ -5,7 +5,7 @@
 
 #include <iostream>
 #include <string.h>
-#include "sixth_day.h"
+#include "sixth_seventh_day.h"
 #include "../libs/rlutil.h"
 #include "../commons/utils.h"
 
@@ -87,13 +87,12 @@ void step(int x, int y, int p) {
     }
 }
 
-std::string createString(std::string prefix, int index) {
-    std::string result;
-    sprintf(result, "%s_%d", prefix, index);
-    return result;
+std::pair<std::string, int>* createString(std::string prefix, int index) {
+
+    return new std::pair<std::string, int>(prefix, index);
 }
 
-std::string checkSequence(int x, int y, int length) {
+std::pair<std::string, int>* checkSequence(int x, int y, int length) {
 
     if (row[y] == length || row[y] == -length) {
         return createString(ROW, y);
@@ -130,7 +129,7 @@ void playersStep() {
                 selected.x == 0 ? selected.x = SIZE - 1 : selected.x--;
                 break;
             case ' ':
-                if (deck[selected.x][selected.y] == '.') {
+                if (deck[selected.x][selected.y] == SPACE) {
                     deck[selected.x][selected.y] = X;
                     step(selected.x, selected.y, X);
                     breakFlag = true;
@@ -140,11 +139,10 @@ void playersStep() {
                 break;
         }
 
-        const std::string& result = checkSequence(selected.x, selected.y, SIZE);
-        if (result != NULL) {
-            int index = result.find('_');
-            const std::string type = result.substr(0, index);
-
+        const std::pair<std::string, int>* win = checkSequence(selected.x, selected.y, SIZE);
+        if (win != NULL) {
+            const std::string type = win->first;
+            const int num = win->second;
             if (type == ROW) {
 
             } else if (type == COL) {
@@ -161,8 +159,76 @@ void playersStep() {
     });
 }
 
+Point getStepPoint() {
+    // todo(cullycross), 12/2/15: seems like here is a bug, with rows->cols
+    for (int i = 0; i < SIZE; i++) {
+        if (abs(row[i]) == SIZE - 1) {
+            for (int j = 0; j < SIZE; j++) {
+                if (deck[i][j] == SPACE) {
+                    return Point{i, j};
+                }
+            }
+        }
+        if (abs(col[i]) == SIZE - 1) {
+            for (int j = 0; j < SIZE; j++) {
+                if (deck[j][i] == SPACE) {
+                    return Point{j, i};
+                }
+            }
+        }
+    }
+
+    if (abs(diag) == SIZE - 1) {
+        for (int i = 0, j = 0; i < SIZE && j < SIZE; i++, j++) {
+            if (deck[i][j] == SPACE) {
+                return Point{j, i};
+            }
+        }
+    }
+    if (abs(antiDiag) == SIZE - 1) {
+        for (int i = 0, j = 0; i < SIZE && j < SIZE; i++, j++) {
+            if (deck[i][j] == SPACE) {
+                return Point{j, i};
+            }
+        }
+    }
+
+    Point* point = nullptr;
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            if(deck[i][j] == SPACE) {
+
+                const int flag = utils::random(0, 3); // for 33%
+
+                if (point == nullptr || !flag) {
+                    point = new Point{i, j};
+                }
+            }
+        }
+    }
+    return *point; // todo(cullycross), 12/2/15: if it's null -> no free space on the deck
+}
+
 void computersStep() {
-    // todo(cullycross), 11/30/15: strong logic
+
+    const Point step = getStepPoint();
+    deck[step.x][step.y] = O;
+
+    std::pair<std::string, int>* win = checkSequence(selected.x, selected.y, SIZE);
+    if (win != NULL) {
+        const std::string type = win->first;
+        const int num = win->second;
+        if (type == ROW) {
+
+        } else if (type == COL) {
+
+        } else if (type == DIAG) {
+
+        } else if (type == ANTI_DIAG) {
+
+        }
+    }
+
 }
 
 void start() {
@@ -176,10 +242,11 @@ void start() {
             computersStep();
         }
         player = !player; // toggle
+        return false;
     });
 }
 
-void sixthDay() {
+void sixthSeventhDay() {
 
     std::cout << "It's fourth day excersize.\nYou're welcome!";
     start();

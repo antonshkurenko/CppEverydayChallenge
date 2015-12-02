@@ -12,7 +12,7 @@
 #include "third-day/third_day.h"
 #include "fourth-day/fourth_day.h"
 #include "fifth-day/fifth_day.h"
-#include "sixth-day/sixth_day.h"
+#include "sixth-seventh-day/sixth_seventh_day.h"
 
 int main(int argc, char** argv) {
 
@@ -49,7 +49,7 @@ int main(int argc, char** argv) {
                 fifthDay();
                 break;
             case 6:
-                sixthDay();
+                sixthSeventhDay();
                 break;
             case -1:
                 breakFlag = true;
