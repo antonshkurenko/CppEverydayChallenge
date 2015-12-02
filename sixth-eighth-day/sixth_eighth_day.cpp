@@ -87,7 +87,7 @@ void step(int x, int y) {
 
 }
 
-std::pair<std::string, int>* createString(std::string prefix, int index) {
+std::pair<std::string, int>* getResultPair(std::string prefix, int index) {
 
     return new std::pair<std::string, int>(prefix, index);
 }
@@ -95,17 +95,17 @@ std::pair<std::string, int>* createString(std::string prefix, int index) {
 std::pair<std::string, int>* checkSequence(int x, int y, int length) {
 
     if (row[y] == length || row[y] == -length) {
-        return createString(ROW, y);
+        return getResultPair(ROW, y);
     }
     if (col[x] == length || col[x] == -length) {
-        return createString(COL, x);
+        return getResultPair(COL, x);
     }
 
     if (diag == length || diag == -length) {
-        return createString(DIAG, 0);
+        return getResultPair(DIAG, 0);
     }
     if (antiDiag == length || antiDiag == -length) {
-        return createString(ANTI_DIAG, 0);
+        return getResultPair(ANTI_DIAG, 0);
     }
 
     return NULL;
@@ -277,6 +277,6 @@ void start() {
 
 void sixthEighthDay() {
 
-    std::cout << "It's fourth day excersize.\nYou're welcome!";
+    std::cout << "It's sixth-eighth day excersize.\nYou're welcome!";
     start();
 }

@@ -12,13 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7d0f90f-a638-4a0b-ae4b-6fde17076a5a" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/sixth-seventh-day/README.md" afterPath="$PROJECT_DIR$/sixth-eighth-day/README.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/sixth-seventh-day/sixth_seventh_day.cpp" afterPath="$PROJECT_DIR$/sixth-eighth-day/sixth_eighth_day.cpp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/sixth-seventh-day/sixth_seventh_day.h" afterPath="$PROJECT_DIR$/sixth-eighth-day/sixth_eighth_day.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/CppEverydayChallenge.iml" afterPath="$PROJECT_DIR$/.idea/CppEverydayChallenge.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.cpp" afterPath="$PROJECT_DIR$/main.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sixth-eighth-day/sixth_eighth_day.cpp" afterPath="$PROJECT_DIR$/sixth-eighth-day/sixth_eighth_day.cpp" />
     </list>
     <ignored path="CppEverydayChallenge.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,14 +34,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="sixth_eighth_day.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sixth-eighth-day/sixth_eighth_day.cpp">
+      <file leaf-file-name="fifth_day.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fifth-day/fifth_day.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.579661">
-              <caret line="67" column="18" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="48" column="42" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
               <folding>
                 <element signature="e#75#94#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sixth_eighth_day.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sixth-eighth-day/sixth_eighth_day.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.0576272">
+              <caret line="155" column="29" selection-start-line="155" selection-start-column="29" selection-end-line="155" selection-end-column="29" />
+              <folding>
+                <element signature="e#75#94#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fifth_day.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fifth-day/fifth_day.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -59,16 +76,6 @@
               <folding>
                 <element signature="e#75#96#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -467,7 +474,25 @@
       <option name="project" value="LOCAL" />
       <updated>1449014861307</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Almost finish tic-tac-toe">
+      <created>1449091303722</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1449091303722</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Finish sixth-eight day almost">
+      <created>1449091480286</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1449091480286</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Remove todos, clear">
+      <created>1449091559935</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1449091559935</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView">
@@ -526,7 +551,10 @@
     <MESSAGE value="Half of the sixth day" />
     <MESSAGE value="Half of the sixth-seventh day" />
     <MESSAGE value="Add todo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add todo" />
+    <MESSAGE value="Almost finish tic-tac-toe" />
+    <MESSAGE value="Finish sixth-eight day almost" />
+    <MESSAGE value="Remove todos, clear" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove todos, clear" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -812,13 +840,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fifth-day/fifth_day.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/first-day/first_day.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -837,16 +858,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fifth-day/fifth_day.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="48" column="42" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
-          <folding>
-            <element signature="e#75#94#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -936,10 +947,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fifth-day/fifth_day.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fifth-day/fifth_day.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="42" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
+          <folding>
+            <element signature="e#75#94#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sixth-eighth-day/sixth_eighth_day.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.579661">
-          <caret line="67" column="18" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
+        <state vertical-scroll-proportion="-3.0576272">
+          <caret line="155" column="29" selection-start-line="155" selection-start-column="29" selection-end-line="155" selection-end-column="29" />
           <folding>
             <element signature="e#75#94#0" expanded="true" />
           </folding>
