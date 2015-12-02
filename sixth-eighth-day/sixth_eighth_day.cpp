@@ -38,7 +38,7 @@ void init() {
     diag = antiDiag = 0;
 
     rlutil::hidecursor();
-    player = utils::random(0, 2); // // todo(cullycross), 12/2/15: ain't sure it works
+    player = utils::random(0, 2) > 0;
 }
 
 void draw() {
@@ -146,7 +146,7 @@ bool playersStep() {
     const std::pair<std::string, int>* win = checkSequence(selected.x, selected.y, SIZE);
     if (win != NULL) {
         const std::string type = win->first;
-        const int num = win->second;
+        //const int num = win->second;
         if (type == ROW) {
             // color the row with number
         } else if (type == COL) {
@@ -174,7 +174,7 @@ Point* getSpaceCoords() {
             }
         }
     }
-    return point; // todo(cullycross), 12/2/15: if it's null -> no free space on the deck
+    return point; // if it's null -> no free space on the deck
 }
 
 Point getStepPoint() {
@@ -224,7 +224,7 @@ bool computersStep() {
     std::pair<std::string, int>* win = checkSequence(stepPoint.x, stepPoint.y, SIZE);
     if (win != NULL) {
         const std::string type = win->first;
-        const int num = win->second;
+        //const int num = win->second;
         if (type == ROW) {
             // color the row with number
         } else if (type == COL) {
