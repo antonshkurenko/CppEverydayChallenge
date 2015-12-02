@@ -6,7 +6,7 @@
 #ifndef CPPEVERYDAYCHALLENGE_SIXTH_DAY_H
 #define CPPEVERYDAYCHALLENGE_SIXTH_DAY_H
 
-void sixthSeventhDay();
+void sixthEighthDay();
 
 struct Point {
     Point() {

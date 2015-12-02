@@ -5,7 +5,7 @@
 
 #include <iostream>
 #include <string.h>
-#include "sixth_seventh_day.h"
+#include "sixth_eighth_day.h"
 #include "../libs/rlutil.h"
 #include "../commons/utils.h"
 
@@ -29,10 +29,13 @@ Point selected;
 
 void init() {
     for (int i = 0; i < SIZE; i++) {
+        row[i] = 0;
+        col[i] = 0;
         for (int j = 0; j < SIZE; j++) {
             deck[i][j] = SPACE;
         }
     }
+    diag = antiDiag = 0;
 
     rlutil::hidecursor();
     player = utils::random(0, 2); // // todo(cullycross), 12/2/15: ain't sure it works
@@ -66,25 +69,20 @@ void invalidate() {
     draw();
 }
 
-void step(int x, int y, int p) {
-    if (p == 1) {
-        row[y]++;
-        col[x]++;
+void step(int x, int y) {
+    int inc = player ? 1 : -1;
 
-        if (x == y)
-            diag++;
+    col[x] += inc;
+    row[y] += inc;
 
-        if (y == SIZE - x)
-            antiDiag++;
-    } else {
-        col[x]--;
-        row[y]--;
-        if (x == y)
-            diag--;
-
-        if (y == SIZE - x)
-            antiDiag--;
+    if (x == y) {
+        diag += inc;
     }
+
+    if (y == SIZE - x - 1) {
+        antiDiag += inc;
+    }
+
 }
 
 std::pair<std::string, int>* createString(std::string prefix, int index) {
@@ -111,7 +109,7 @@ std::pair<std::string, int>* checkSequence(int x, int y, int length) {
     return NULL;
 }
 
-void playersStep() {
+bool playersStep() {
 
     utils::whileIncorrectExecute([]() {
         bool breakFlag = false;
@@ -131,7 +129,7 @@ void playersStep() {
             case ' ':
                 if (deck[selected.x][selected.y] == SPACE) {
                     deck[selected.x][selected.y] = X;
-                    step(selected.x, selected.y, X);
+                    step(selected.x, selected.y);
                     breakFlag = true;
                 }
                 break;
@@ -139,40 +137,57 @@ void playersStep() {
                 break;
         }
 
-        const std::pair<std::string, int>* win = checkSequence(selected.x, selected.y, SIZE);
-        if (win != NULL) {
-            const std::string type = win->first;
-            const int num = win->second;
-            if (type == ROW) {
-
-            } else if (type == COL) {
-
-            } else if (type == DIAG) {
-
-            } else if (type == ANTI_DIAG) {
-
-            }
-        }
-
         invalidate();
         return breakFlag;
     });
+
+    const std::pair<std::string, int>* win = checkSequence(selected.x, selected.y, SIZE);
+    if (win != NULL) {
+        const std::string type = win->first;
+        const int num = win->second;
+        if (type == ROW) {
+            // color the row with number
+        } else if (type == COL) {
+            // color the col with number
+        } else if (type == DIAG) {
+            // color the diag
+        } else if (type == ANTI_DIAG) {
+            // color the anti_diag
+        }
+        return true;
+    } else {
+        return false;
+    }
+}
+
+Point* getSpaceCoords() {
+    Point* point = nullptr;
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            if (deck[i][j] == SPACE) {
+                const int flag = utils::random(0, 3); // for 33%
+                if (point == nullptr || !flag) {
+                    point = new Point{i, j};
+                }
+            }
+        }
+    }
+    return point; // todo(cullycross), 12/2/15: if it's null -> no free space on the deck
 }
 
 Point getStepPoint() {
-    // todo(cullycross), 12/2/15: seems like here is a bug, with rows->cols
     for (int i = 0; i < SIZE; i++) {
         if (abs(row[i]) == SIZE - 1) {
             for (int j = 0; j < SIZE; j++) {
-                if (deck[i][j] == SPACE) {
-                    return Point{i, j};
+                if (deck[j][i] == SPACE) {
+                    return Point{j, i};
                 }
             }
         }
         if (abs(col[i]) == SIZE - 1) {
             for (int j = 0; j < SIZE; j++) {
-                if (deck[j][i] == SPACE) {
-                    return Point{j, i};
+                if (deck[i][j] == SPACE) {
+                    return Point{i, j};
                 }
             }
         }
@@ -181,54 +196,46 @@ Point getStepPoint() {
     if (abs(diag) == SIZE - 1) {
         for (int i = 0, j = 0; i < SIZE && j < SIZE; i++, j++) {
             if (deck[i][j] == SPACE) {
-                return Point{j, i};
+                return Point{i, j};
             }
         }
     }
     if (abs(antiDiag) == SIZE - 1) {
-        for (int i = 0, j = 0; i < SIZE && j < SIZE; i++, j++) {
+        for (int i = 0, j = SIZE - 1; i < SIZE && j >= 0; i++, j--) {
             if (deck[i][j] == SPACE) {
-                return Point{j, i};
+                return Point{i, j};
             }
         }
     }
 
-    Point* point = nullptr;
-    for (int i = 0; i < SIZE; i++) {
-        for (int j = 0; j < SIZE; j++) {
-            if(deck[i][j] == SPACE) {
-
-                const int flag = utils::random(0, 3); // for 33%
-
-                if (point == nullptr || !flag) {
-                    point = new Point{i, j};
-                }
-            }
-        }
-    }
-    return *point; // todo(cullycross), 12/2/15: if it's null -> no free space on the deck
+    return *getSpaceCoords();
 }
 
-void computersStep() {
+bool computersStep() {
 
-    const Point step = getStepPoint();
-    deck[step.x][step.y] = O;
+    const Point stepPoint = getStepPoint();
 
-    std::pair<std::string, int>* win = checkSequence(selected.x, selected.y, SIZE);
+    deck[stepPoint.x][stepPoint.y] = O;
+    step(stepPoint.x, stepPoint.y);
+
+    invalidate();
+    std::pair<std::string, int>* win = checkSequence(stepPoint.x, stepPoint.y, SIZE);
     if (win != NULL) {
         const std::string type = win->first;
         const int num = win->second;
         if (type == ROW) {
-
+            // color the row with number
         } else if (type == COL) {
-
+            // color the col with number
         } else if (type == DIAG) {
-
+            // color the diag
         } else if (type == ANTI_DIAG) {
-
+            // color the anti_diag
         }
+        return true;
+    } else {
+        return false;
     }
-
 }
 
 void start() {
@@ -236,17 +243,37 @@ void start() {
     init();
 
     utils::whileIncorrectExecute([]() {
+        bool win;
         if (player) {
-            playersStep();
+            win = playersStep();
         } else {
-            computersStep();
+            win = computersStep();
         }
-        player = !player; // toggle
-        return false;
+
+        if (win) {
+            if (player) {
+                std::cout << "\nPlayer won!";
+            } else {
+                std::cout << "\nComputer won!";
+            }
+            return true;
+        } else {
+
+            if (getSpaceCoords() == nullptr) {
+                std::cout << "\nDraw!";
+                return true;
+            }
+
+            player = !player; // toggle
+            return false;
+        }
     });
+
+    rlutil::setColor(rlutil::GREY);
+    rlutil::anykey();
 }
 
-void sixthSeventhDay() {
+void sixthEighthDay() {
 
     std::cout << "It's fourth day excersize.\nYou're welcome!";
     start();

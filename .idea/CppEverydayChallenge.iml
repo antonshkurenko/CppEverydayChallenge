@@ -15,8 +15,8 @@
       <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/second-day/second_day.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/second-day/second_day.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/sixth-seventh-day/sixth_seventh_day.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/sixth-seventh-day/sixth_seventh_day.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/sixth-eighth-day/sixth_eighth_day.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/sixth-eighth-day/sixth_eighth_day.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/third-day/third_day.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/third-day/third_day.h" isTestSource="false" />
     </content>
